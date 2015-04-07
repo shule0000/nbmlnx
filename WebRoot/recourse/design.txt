@@ -1,0 +1,9 @@
+1、 bootstrap3.0学习：http://www.cnblogs.com/aehyok/p/3381651.html
+2、分享工具代码：http://www.jiathis.com/getcode
+3、第三方统计系统：http://www.clicki.cn/
+
+1、nodeBB论坛：https://community.nodebb.org/
+2、@云端的Java开源共享论坛：http://www.xlinecode.com/displayForums.do
+3、猫扑论坛：http://www.mop.com/
+4、魅族社区：http://bbs.meizu.cn/
+5、魔时网论坛：http://www.mosh.cn/
