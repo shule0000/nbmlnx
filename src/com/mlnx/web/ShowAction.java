@@ -32,8 +32,8 @@ public class ShowAction extends BaseAction {
 		// 显示导航栏菜单
 		SortedMap[] navigations = navigationService
 				.executeQuery(
-						"select * from navigation where navStatus = ? order by navPriority desc",
-						new Object[]{1});
+						"select * from navigation where navStatus = ? and navType = ? order by navPriority desc",
+						new Object[]{1, 1});
 		request.setAttribute("navigations", navigations);
 
 		// 显示文本简介
