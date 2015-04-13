@@ -35,7 +35,7 @@
       </button>
       <c:forEach items="${headers }" var="hea">
         <a class="navbar-brand" href="#"> <img
-          src="/mlnxMS/upload/${hea.logoImg }" alt="logo" height="50px;"
+          src="/docs/upload/${hea.logoImg }" alt="logo" height="50px;"
           class="logo">
         </a>
       </c:forEach>
@@ -136,7 +136,7 @@
             <div class="card">
               <c:forEach items="${image1 }" var="img1">
                 <div class="face front">
-                  <img src="/mlnxMS/upload/${img1.imgUrl }" alt=""
+                  <img src="/docs/upload/${img1.imgUrl }" alt=""
                     class="img-responsive" />
                 </div>
                 <div class="face back">
@@ -160,7 +160,7 @@
             <div class="card">
               <c:forEach items="${image2 }" var="img2">
                 <div class="face front">
-                  <img src="/mlnxMS/upload/${img2.imgUrl }" alt=""
+                  <img src="/docs/upload/${img2.imgUrl }" alt=""
                     class="img-responsive" />
                 </div>
                 <div class="face back">
@@ -183,7 +183,7 @@
             <div class="card">
               <c:forEach items="${image3 }" var="img3">
                 <div class="face front">
-                  <img src="/mlnxMS/upload/${img3.imgUrl }" alt=""
+                  <img src="/docs/upload/${img3.imgUrl }" alt=""
                     class="img-responsive" />
                 </div>
                 <div class="face back">
@@ -206,7 +206,7 @@
             <div class="card">
               <c:forEach items="${image4 }" var="img4">
                 <div class="face front">
-                  <img src="/mlnxMS/upload/${img4.imgUrl }" alt=""
+                  <img src="/docs/upload/${img4.imgUrl }" alt=""
                     class="img-responsive" />
                 </div>
                 <div class="face back">
@@ -249,7 +249,7 @@
               <c:if test="${img.imgType=='证书类' }">
                 <li class="portfolio-box honour"><a
                   class="expander" href="#page3" title=""> <img
-                    src="/mlnxMS/upload/${img.imgUrl }" alt="" />
+                    src="/docs/upload/${img.imgUrl }" alt="" />
                     <div class="mask"></div>
                     <h4>${img.imgDetail }</h4>
                 </a></li>
@@ -258,7 +258,7 @@
               <c:if test="${img.imgType=='人员类' }">
                 <li class="portfolio-box member"><a
                   class="expander" href="#page3" title=""> <img
-                    src="/mlnxMS/upload/${img.imgUrl }" alt="" />
+                    src="/docs/upload/${img.imgUrl }" alt="" />
                     <div class="mask"></div>
                     <h4>${img.imgDetail }</h4>
                 </a></li>
@@ -352,7 +352,7 @@
   <div class="footer">
     <div class="col-xs-4 col-xs-offset-2 col-sm-3">
       <c:forEach items="${qrcode1 }" var="qr1">
-        <img src="/mlnxMS/upload/${qr1.qrImg }" class="img-responsive"
+        <img src="/docs/upload/${qr1.qrImg }" class="img-responsive"
           alt="nbmlnx_service" width="90px" align="bottom">
         <p style="font-size:11px;margin: 12px;">${qr1.qrName }</p>
       </c:forEach>
@@ -360,7 +360,7 @@
 
     <div class="col-xs-4 col-sm-3">
       <c:forEach items="${qrcode2 }" var="qr2">
-        <img src="/mlnxMS/upload/${qr2.qrImg }" class="img-responsive"
+        <img src="/docs/upload/${qr2.qrImg }" class="img-responsive"
           alt="nbmlnx_service" width="90px" align="bottom">
         <p style="font-size:11px;margin: 12px;">${qr2.qrName }</p>
       </c:forEach>
