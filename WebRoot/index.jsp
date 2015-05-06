@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <meta name="viewport"
   content="width=device-width,inital-scale=1.0,maximum-scale=1.0,use-scalable=no">
-<meta name="Author" content="bruce。bei">
 <meta name="Description" content="宁波美灵思医疗科技有限公司官网专用">
 <link rel="icon" href="images/logo.png">
 <title>美灵思医疗</title>
@@ -64,7 +63,8 @@
                         <h1>${cnt1.conTitle }</h1>
                         <p class="mlnx-white">${cnt1.conText }</p>
                       </c:forEach>
-                      <div class="btn btn-mlnx ">
+                      <div class="btn btn-mlnx scroll"
+                        onclick="gotoPage('#page5')">
                         更多<span
                           class="glyphicon glyphicon-hand-right mlnx-gt"></span>
                       </div>
@@ -83,7 +83,8 @@
                         <h1>${cnt2.conTitle }</h1>
                         <p class="mlnx-white">${cnt2.conText }</p>
                       </c:forEach>
-                      <div class="btn btn-mlnx ">
+                      <div class="btn btn-mlnx scroll"
+                        onclick="gotoPage('#page5')">
                         更多<span
                           class="glyphicon glyphicon-hand-right mlnx-gt"></span>
                       </div>
@@ -102,7 +103,8 @@
                         <h1>${cnt3.conTitle }</h1>
                         <p class="mlnx-white">${cnt3.conText }</p>
                       </c:forEach>
-                      <div class="btn btn-mlnx ">
+                      <div class="btn btn-mlnx scroll"
+                        onclick="gotoPage('#page5')">
                         更多<span
                           class="glyphicon glyphicon-hand-right mlnx-gt"></span>
                       </div>
@@ -120,7 +122,12 @@
       <hr>
       <div class="wrap page-box">
         <div class="container">
-          <h2>产品展示</h2>
+          <div class="title">
+            <h1>产品展示</h1>
+            <br>
+            <hr>
+            <small><a href="#page5" class="scroll">联系我们</a></small>
+          </div>
           <ol class="breadcrumb table-left">
             <li><a href="#">Home</a></li>
             <li><a href="#">产品</a></li>
@@ -360,13 +367,14 @@
                               </div>
                             </div>
 
-                            <div class="row">
-                              <label class="control-label"
+                            <div class="row top-25">
+                              <label class="col-md-4 text-left"
                                 for="focusedInput"
                                 style="font-size: medium; font-family: 幼圆"><b>请输入验证码：</b></label>
                               <span><input
-                                class="input-xlarge focused" type="text"
-                                id="yzm" name="yzm" /></span> <span><img
+                                class="input-xlarge focused col-md-4"
+                                type="text" id="yzm" name="yzm" /></span> <span
+                                class="col-md-4 text-left"><img
                                 id="yzmImg" src="yzm.jsp"
                                 onclick="changeYzm();"
                                 style="cursor: pointer;"></span>

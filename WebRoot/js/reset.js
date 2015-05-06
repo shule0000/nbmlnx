@@ -1,3 +1,7 @@
+function gotoPage(page) {
+	top.location = page;
+}
+
 function browserRedirect() {
 	var sUserAgent = navigator.userAgent.toLowerCase();
 	var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";

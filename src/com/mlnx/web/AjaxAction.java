@@ -26,23 +26,19 @@ public class AjaxAction extends BaseAction {
 	public String phone;
 	public String message;
 	public void leaveMess() {
-		System.out.println("111");
 		MailSenderInfo mailInfo = new MailSenderInfo();
 		mailInfo.setMailServerHost("smtp.qq.com");
 		mailInfo.setMailServerPort("25");
 		mailInfo.setValidate(true);
-		mailInfo.setUserName("460968755@qq.com");
-		mailInfo.setPassword("woaiapei.0000");// 您的邮箱密码
-		mailInfo.setFromAddress("460968755@qq.com");
+		mailInfo.setUserName("nbmlnx-sendmail@nbmlnx.cn");
+		mailInfo.setPassword("medgen2011");// 您的邮箱密码
+		mailInfo.setFromAddress("nbmlnx-sendmail@nbmlnx.cn");
 		mailInfo.setToAddress("nbmlnx@nbmlnx.cn");
-		mailInfo.setSubject("访问者留言！");
-		System.out.println("222");
-		mailInfo.setContent("留言者姓名：" + name + "	email：" + email + "    电话："
-				+ phone + "\n内容" + message);
-		System.out.println("333");
+		mailInfo.setSubject("访问者留言，请不要回复！");
+		mailInfo.setContent("姓名：" + name + "\nemail：" + email + "\n电话："
+				+ phone + "\n内容：" + message);
 		// 这个类主要来发送邮件
 		SimpleMailSender sms = new SimpleMailSender();
-		System.out.println("444");
 		sms.sendTextMail(mailInfo);// 发送文体格式
 
 	}
