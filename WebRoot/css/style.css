@@ -82,12 +82,7 @@ i {
   color: #fff;
 }
 
-.nav>li>a {
-  text-decoration: none;
-  color: rgb(47, 144, 194);
-}
-
-.nav>li>.active {
+.nav>.active {
   text-decoration: none;
   background-color: rgb(34, 55, 100);
   color: #fff;

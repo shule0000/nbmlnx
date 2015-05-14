@@ -13,8 +13,9 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 </head>
-<body>
-  <nav class="navbar navbar-fixed-top navbar-mlnx" role="navigation">
+<body data-spy="scroll" data-target="#navbar-example" data-offset="0">
+  <nav id="navbar-example" class="navbar navbar-fixed-top navbar-mlnx "
+    role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse"
         data-target="#index-navbar-collapse">
