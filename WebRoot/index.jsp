@@ -1,19 +1,31 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jstl/fmt_rt"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+ <%
+String path = request.getContextPath();
+String basePath =request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
+<base href="<%=basePath%>">
+
 <meta charset="UTF-8">
 <meta name="viewport"
-  content="width=device-width,inital-scale=1.0,maximum-scale=1.0,use-scalable=no">
+  content="width=device-width,inital-scale=1.0,maximum-scale=1.0">
 <meta name="Description" content="宁波美灵思医疗科技有限公司官网专用">
 <link rel="icon" href="images/logo.png">
 <title>美灵思医疗</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="css/cp-reset.css">
+<link rel="stylesheet" href="css/cp-style.css">
 </head>
 <body data-spy="scroll" data-target="#navbar-example" data-offset="0">
+
+
+
   <nav id="navbar-example" class="navbar navbar-fixed-top navbar-mlnx "
     role="navigation">
     <div class="navbar-header">
@@ -129,11 +141,37 @@
             <hr>
             <small><a href="#page5" class="scroll">联系我们</a></small>
           </div>
-          <ol class="breadcrumb table-left">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">产品</a></li>
-            <li class="active">硬件产品</li>
-          </ol>
+          <div>
+            <ul class="cd-items cd-container">
+              <li class="cd-item"><img src="images/item-1.jpg"
+                alt="Item Preview"> <a href="#0"
+                class="cd-trigger">点击预览</a></li>
+            </ul>
+            <div class="cd-quick-view">
+              <div class="cd-slider-wrapper">
+                <ul class="cd-slider">
+                  <li class="selected"><img src="images/item-1.jpg"
+                    alt="Product 1"></li>
+                  <li><img src="images/item-2.jpg" alt="Product 2"></li>
+                  <li><img src="images/item-3.jpg" alt="Product 3"></li>
+                </ul>
+                <ul class="cd-slider-navigation">
+                  <li><a class="cd-next" href="#0">上一页</a></li>
+                  <li><a class="cd-prev" href="#0">下一页</a></li>
+                </ul>
+              </div>
+              <div class="cd-item-info">
+                <h2>美灵思</h2>
+                <p>左边图片，右边详情功能介绍chul左边图片，右边详情功能介绍chul左边图片，右边详情功能介绍chul左边图片，右边详情功能介绍chul左边图片，右边详情功能介绍chul左边图片，右边详情功能介绍chul左边图片，右边详情功能介绍chul左边图片，右边详情功能介绍chul</p>
+                <ul class="cd-item-action">
+                  <li><button class="add-to-cart">联系我们</button></li>
+                  <li><a href="#0">了解更多</a></li>
+                </ul>
+              </div>
+              <a href="#0" class="cd-close">关闭</a>
+            </div>
+            <div id="cp"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -169,7 +207,7 @@
             <div class="card">
               <c:forEach items="${image1 }" var="img1">
                 <div class="face front">
-                  <img src="/docs/upload/${img1.imgUrl }" alt=""
+                  <img src="/docs/upload/${img1.imgUrl }" alt="图片"
                     class="img-responsive" />
                 </div>
                 <div class="face back">
@@ -420,6 +458,10 @@
                 <div class="heading-section">
                   <h2>Find Us On Map</h2>
                   <img src="images/under-heading.png" alt="">
+                  <div style="margin-top: 15px;">
+                    <iframe src="baidumap.html" frameBorder=0 height=500
+                      width=700 scrolling=no></iframe>
+                  </div>
                 </div>
               </div>
             </div>
@@ -502,7 +544,8 @@
         <c:forEach items="${copyright }" var="cop">
           <p style="font-size: 10px">
             © 2015 Power by <a href="http://www.nbmlnx.com"
-              target="_blank">${cop.cpDetail }</a>
+              target="_blank">${cop.cpDetail }</a>&nbsp;&nbsp;备案号：<a
+              href="http://www.miitbeian.gov.cn/">浙ICP备13006704号-2</a>
           </p>
         </c:forEach>
       </div>
@@ -541,6 +584,9 @@
 
   <script type="text/javascript" src="js/reset.js"></script>
   <script type="text/javascript" src="js/my.js"></script>
-
+  <!-- 产品展示效果  -->
+  <script src="js/modernizr.js"></script>
+  <script src="js/velocity.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

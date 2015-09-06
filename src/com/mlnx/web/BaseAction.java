@@ -17,42 +17,42 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BaseAction extends ActionSupport {
 
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpServletResponse response = ServletActionContext.getResponse();
-		HttpSession session = request.getSession();
-		ServletContext application = ServletActionContext.getServletContext();
-		
-		public void validate() {
-			// TODO Auto-generated method stub
-			HibernateSessionFactory.getSession().clear();
-			try {
-				request.setCharacterEncoding("UTF-8");
-				response.setCharacterEncoding("UTF-8");
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	HttpServletRequest request = ServletActionContext.getRequest();
+	HttpServletResponse response = ServletActionContext.getResponse();
+	HttpSession session = request.getSession();
+	ServletContext application = ServletActionContext.getServletContext();
+
+	public void validate() {
+		HibernateSessionFactory.getSession().clear();
+		try {
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
 		}
-		
-		public void forward(String path){
-			try {
-				request.getRequestDispatcher(path).forward(request, response);
-			} catch (ServletException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
+	}
+
+	public void forward(String path) {
+		try {
+			request.getRequestDispatcher(path).forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
 		}
-		
-		public void alertRedirect(String mess, String path){
-			try {
-				response.setCharacterEncoding("UTF-8");
-				PrintWriter out = this.response.getWriter();
-				out.print("<script>alert('"+mess+"');window.location = '"+path+"';</script>");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	}
+
+	public void alertRedirect(String mess, String path) {
+		try {
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter out = this.response.getWriter();
+			out.print("<script>alert('" + mess + "');window.location = '"
+					+ path + "';</script>");
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+	}
 }

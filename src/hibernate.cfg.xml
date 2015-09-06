@@ -10,7 +10,7 @@
       org.hibernate.dialect.MySQLDialect
     </property>
     <property name="connection.url">
-      jdbc:mysql://localhost:3306/mlnx
+      jdbc:mysql://121.40.137.14:3306/mlnx
     </property>
     <property name="connection.username">root</property>
     <property name="connection.password">123456</property>
@@ -19,6 +19,14 @@
     </property>
     <property name="myeclipse.connection.profile">mlnx</property>
     <property name="connection.autocommit">true</property>
+    <property name="hibernate.c3p0.min_size">2</property>
+    <property name="hibernate.c3p0.timeout">5000</property>
+    <property name="hibernate.c3p0.max_statements">100</property>
+    <property name="hibernate.c3p0.idle_test_period">3000</property>
+    <property name="hibernate.c3p0.acquire_increment">2</property>
+    <property name="hibernate.c3p0.validate">false</property>
+    <!-- 下面这句很重要，后面有解释 -->
+    <property name="hibernate.c3p0.testConnectionOnCheckout">true</property>
     <mapping class="com.mlnx.core.Link" />
     <mapping class="com.mlnx.core.Copyright" />
     <mapping class="com.mlnx.core.Navigation" />
@@ -31,7 +39,6 @@
     <mapping class="com.mlnx.core.Recruitment" />
     <mapping class="com.mlnx.core.Image" />
     <mapping class="com.mlnx.core.Admin" />
-
   </session-factory>
 
 </hibernate-configuration>

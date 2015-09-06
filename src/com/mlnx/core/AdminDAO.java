@@ -1,9 +1,12 @@
 package com.mlnx.core;
 
 import java.util.List;
+
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
+
 import static org.hibernate.criterion.Example.create;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,6 +61,7 @@ public class AdminDAO extends BaseHibernateDAO {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Admin> findByExample(Admin instance) {
 		log.debug("finding Admin instance by example");
 		try {
@@ -73,6 +77,7 @@ public class AdminDAO extends BaseHibernateDAO {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List findByProperty(String propertyName, Object value) {
 		log.debug("finding Admin instance with property: " + propertyName
 				+ ", value: " + value);
@@ -88,14 +93,17 @@ public class AdminDAO extends BaseHibernateDAO {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Admin> findByAdName(Object adName) {
 		return findByProperty(AD_NAME, adName);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Admin> findByAdPass(Object adPass) {
 		return findByProperty(AD_PASS, adPass);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List findAll() {
 		log.debug("finding all Admin instances");
 		try {

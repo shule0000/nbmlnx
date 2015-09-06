@@ -10,6 +10,10 @@ import com.mlnx.tool.SimpleMailSender;
 
 public class AjaxAction extends BaseAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// 留言检查验证码
 	public String yzm;
 	public void checkYzm() throws IOException {

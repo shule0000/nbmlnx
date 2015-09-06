@@ -12,6 +12,10 @@ import com.mlnx.service.QrcodeService;
 
 public class ShowAction extends BaseAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	HeaderService headerService = new HeaderService();
 	NavigationService navigationService = new NavigationService();
 	ContentService contentService = new ContentService();
@@ -23,6 +27,7 @@ public class ShowAction extends BaseAction {
 	/**
 	 * 显示展示主页
 	 */
+	@SuppressWarnings("rawtypes")
 	public void showIndex() {
 		// 显示页顶信息
 		SortedMap[] headers = headerService.executeQuery(
