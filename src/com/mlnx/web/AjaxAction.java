@@ -22,7 +22,6 @@ public class AjaxAction extends BaseAction {
 	}
 
 	public String name;
-	public String email;
 	public String phone;
 	public String message;
 	public void leaveMess() {
@@ -35,8 +34,7 @@ public class AjaxAction extends BaseAction {
 		mailInfo.setFromAddress("nbmlnx-sendmail@nbmlnx.cn");
 		mailInfo.setToAddress("nbmlnx@nbmlnx.cn");
 		mailInfo.setSubject("访问者留言，请不要回复！");
-		mailInfo.setContent("姓名：" + name + "\nemail：" + email + "\n电话："
-				+ phone + "\n内容：" + message);
+		mailInfo.setContent("姓名：" + name + "\n电话：" + phone + "\n内容：" + message);
 		// 这个类主要来发送邮件
 		SimpleMailSender sms = new SimpleMailSender();
 		sms.sendTextMail(mailInfo);// 发送文体格式

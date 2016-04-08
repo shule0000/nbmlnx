@@ -1,19 +1,25 @@
 package com.mlnx.web;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.SortedMap;
 
+import com.mlnx.service.BannerService;
 import com.mlnx.service.ContactService;
 import com.mlnx.service.ContentService;
 import com.mlnx.service.CopyrightService;
 import com.mlnx.service.HeaderService;
 import com.mlnx.service.ImageService;
 import com.mlnx.service.NavigationService;
+import com.mlnx.service.ProductService;
 import com.mlnx.service.QrcodeService;
 
 public class ShowAction extends BaseAction {
 
 	HeaderService headerService = new HeaderService();
 	NavigationService navigationService = new NavigationService();
+	BannerService bannerService = new BannerService();
+	ProductService productService = new ProductService();
 	ContentService contentService = new ContentService();
 	ImageService imageService = new ImageService();
 	QrcodeService qrcodeService = new QrcodeService();
@@ -36,86 +42,47 @@ public class ShowAction extends BaseAction {
 						new Object[]{1, 1});
 		request.setAttribute("navigations", navigations);
 
-		// 显示文本简介
-		// 第一显示位置
-		SortedMap[] content1 = contentService
+		// 显示Banner
+		SortedMap[] banners = bannerService
 				.executeQuery(
-						"select * from content where conPosition = ? and conStatus = ?",
-						new Object[]{1, 1});
-		request.setAttribute("content1", content1);
+						"select * from banner where banStatus = ? order by banPriority desc",
+						new Object[]{1});
+		request.setAttribute("banners", banners);
 
-		// 第二显示位置
-		SortedMap[] content2 = contentService
+		// 显示产品
+		SortedMap[] products = productService
 				.executeQuery(
-						"select * from content where conPosition = ? and conStatus = ?",
-						new Object[]{2, 1});
-		request.setAttribute("content2", content2);
+						"select * from product where pduStatus = ? order by pduPriority desc",
+						new Object[]{1});
 
-		// 第三显示位置
-		SortedMap[] content3 = contentService
-				.executeQuery(
-						"select * from content where conPosition = ? and conStatus = ?",
-						new Object[]{3, 1});
-		request.setAttribute("content3", content3);
+		List<Object[]> productsFor4 = new ArrayList<Object[]>();
+		int curr = 0;
+		int curr2 = 0;
 
-		// 显示服务图片信息
-		// 第一显示位置
-		SortedMap[] image1 = imageService
-				.executeQuery(
-						"select * from image where imgType = ? and imgPosition = ? and imgStatus = ?",
-						new Object[]{"服务类", 1, 1});
-		request.setAttribute("image1", image1);
+		Object[] childPdus = new Object[4];
+		while (curr2 < products.length) {
+			childPdus[curr] = products[curr2];
+			curr++;
+			curr2++;
+			if (curr == 4 || curr2 == products.length) {
+				productsFor4.add(childPdus);
+				childPdus = new Object[4];
+				curr = 0;
+			}
+		}
 
-		// 第二显示位置
-		SortedMap[] image2 = imageService
-				.executeQuery(
-						"select * from image where imgType = ? and imgPosition = ? and imgStatus = ?",
-						new Object[]{"服务类", 2, 1});
-		request.setAttribute("image2", image2);
+		Object[] finalPdus = new Object[productsFor4.size()];
+		for (int i = 0; i < finalPdus.length; i++) {
+			finalPdus[i] = productsFor4.get(i);
+		}
 
-		// 第三显示位置
-		SortedMap[] image3 = imageService
-				.executeQuery(
-						"select * from image where imgType = ? and imgPosition = ? and imgStatus = ?",
-						new Object[]{"服务类", 3, 1});
-		request.setAttribute("image3", image3);
-
-		// 第四显示位置
-		SortedMap[] image4 = imageService
-				.executeQuery(
-						"select * from image where imgType = ? and imgPosition = ? and imgStatus = ?",
-						new Object[]{"服务类", 4, 1});
-		request.setAttribute("image4", image4);
-
-		// 显示所有图片
-		SortedMap[] images = imageService
-				.executeQuery(
-						"select * from image where (imgType = ? or imgType = ?) and imgStatus = ?",
-						new Object[]{"证书类", "人员类", 1});
-		request.setAttribute("images", images);
-
-		// 显示二维码
-		// 第一显示位置
-		SortedMap[] qrcode1 = qrcodeService.executeQuery(
-				"select * from qrcode where qrPosition = ? and qrStatus = ?",
-				new Object[]{1, 1});
-		request.setAttribute("qrcode1", qrcode1);
-
-		// 第二显示位置
-		SortedMap[] qrcode2 = qrcodeService.executeQuery(
-				"select * from qrcode where qrPosition = ? and qrStatus = ?",
-				new Object[]{2, 1});
-		request.setAttribute("qrcode2", qrcode2);
+		request.setAttribute("finalPdus", finalPdus);
 
 		// 显示联系信息
 		SortedMap[] contact = contactService.executeQuery(
 				"select * from contact where ctStatus = ?", new Object[]{1});
 		request.setAttribute("contact", contact);
 
-		// 显示版权信息
-		SortedMap[] copyright = copyrightService.executeQuery(
-				"select * from copyright where cpStatus = ?", new Object[]{1});
-		request.setAttribute("copyright", copyright);
 		this.forward("index.jsp");
 
 	}

@@ -43,14 +43,20 @@ function checkYzm() {
 	});
 }
 
-function leaveMess(name, email, phone, message) {
+function leaveMess() {
+	var name = document.getElementById("name").value;
+	document.getElementById("name").value = "";
+	var phone = document.getElementById("phone").value;
+	document.getElementById("phone").value = "";
+	var message = document.getElementById("message").value;
+	document.getElementById("message").value = "";
+	alert("感谢您的留言，请耐心等待回复！");
 	$.ajax({
 		type : "post",// 请求方式
 		dataType : "text",
 		url : "ajax!leaveMess.action",// 发送请求地址
 		data : {// 发送给数据库的数据
 			name : name,
-			email : email,
 			phone : phone,
 			message : message
 
