@@ -86,4 +86,11 @@ public class ShowAction extends BaseAction {
 		this.forward("index.jsp");
 
 	}
+	
+	/**
+     * 显示展示主页
+     */
+    public void showPhoneIndex() {
+        this.forward("phone.jsp");
+    }
 }
